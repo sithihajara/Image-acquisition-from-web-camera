@@ -13,7 +13,7 @@ iv) Rotate and display the video
 Anaconda - Python 3.7
 ## Algorithm
 ### Step 1:
-<br>
+<Import Opencv Package.>
 
 ### Step 2:
 <br>
