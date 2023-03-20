@@ -13,77 +13,112 @@ iv) Rotate and display the video
 Anaconda - Python 3.7
 ## Algorithm
 ### Step 1:
-<Import Opencv Package.>
+Import Opencv Package
 
 ### Step 2:
-<br>
+Capture the Video from the WebCamera
 
 ### Step 3:
-<br>
+Write the image to a file
 
 ### Step 4:
-<br>
+Show the image or the live camera.
 
 ### Step 5:
-<br>
+End the program.
 
 ## Program:
-``` Python
-### Developed By:
-### Register No:
+
+### Developed By:SITHI HAJARA I
+### Register No:212221230102
 
 ## i) Write the frame as JPG file
-
-
-
+```
+import cv2
+video = cv2.VideoCapture(0)
+while (True):
+    cap,frame=video.read()
+    cv2.imwrite('video.jpeg',frame) 
+    result = False
+video.release()
+cv2.destroyAllWindows()
+```
 
 ## ii) Display the video
-
-
-
+```
+import cv2
+video = cv2.VideoCapture(0)
+while (True):
+    cap,frame=video.read()
+    cv2.imshow('Capturing Video',frame)
+    if cv2.waitKey(1) == ord('q'):
+        break
+video.release()
+cv2.destroyAllWindows()
+```
 
 ## iii) Display the video by resizing the window
-
-
-
-
+```
+import cv2
+import numpy as np
+cap  = cv2.VideoCapture(0)
+while True:
+    ret,frame = cap.read()
+    width = int(cap.get(3))
+    height = int(cap.get(4))
+    image = np.zeros(frame.shape, np.uint8)
+    small_frame = cv2.resize(frame,(0,0),fx =0.5, fy = 0.5)
+    image[:height//2, :width//2]=small_frame
+    image[height//2:, :width//2]=small_frame
+    image[:height//2, width//2:]=small_frame
+    image[height//2:, width//2:]=small_frame
+    cv2.imshow('myimage',image)
+    if cv2.waitKey(1) == ord('q'):
+        break
+video.release()
+cv2.destroyAllWindows()
+```
 
 ## iv) Rotate and display the video
-
-
-
-
-
-
-
-
-
 ```
+
+import cv2
+import numpy as np
+cap  = cv2.VideoCapture(0)
+while True:
+    ret,frame = cap.read()
+    width = int(cap.get(3))
+    height = int(cap.get(4))
+    image = np.zeros(frame.shape, np.uint8)
+    small_frame = cv2.resize(frame,(0,0),fx =0.5, fy = 0.5)
+    image[:height//2, :width//2]=cv2.rotate(small_frame,cv2.ROTATE_180)
+    image[height//2:, :width//2]=small_frame
+    image[:height//2, width//2:]=small_frame
+    image[height//2:, width//2:]=cv2.rotate(small_frame,cv2.ROTATE_180)
+    cv2.imshow('myimage',image)
+    if cv2.waitKey(1) == ord('q'):
+        break
+video.release()
+cv2.destroyAllWindows()
+```
+
 ## Output
 
 ### i) Write the frame as JPG image
-</br>
-</br>
-
+![im1](https://user-images.githubusercontent.com/94219582/226417499-45714c68-ab9e-4ecc-9b8e-626dff8c85e6.png)
 
 ### ii) Display the video
-</br>
-</br>
 
+![im1](https://user-images.githubusercontent.com/94219582/226417646-38254357-4c5f-4258-8e7b-425b65a3c89d.png)
 
 ### iii) Display the video by resizing the window
-</br>
-</br>
 
+![im2](https://user-images.githubusercontent.com/94219582/226417239-fd258ecf-95b7-4fec-80d2-3cda53ee9baa.png)
 
 
 ### iv) Rotate and display the video
-</br>
-</br>
 
-
-
-
+![im3](https://user-images.githubusercontent.com/94219582/226417304-5ebac376-6b85-42de-9311-a4f404070fa7.png)
 
 ## Result:
 Thus the image is accessed from webcamera and displayed using openCV.
